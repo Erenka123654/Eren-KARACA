@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Eren Karaca · Bilişim ve Yazılım</title>
+<meta name="description" content="Eren Karaca: ağ sistemleri, teknik destek ve Python ile backend geliştirme.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#eef2f5; --surface:#ffffff; --ink:#0f1e2b; --muted:#546472; --line:#cfd8df; --accent:#2447f5; --accent-ink:#ffffff;
+  box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){--bg:#0c151d; --surface:#132029; --ink:#e8eef3; --muted:#93a4b1; --line:#243642; --accent:#6f8bff; --accent-ink:#0c151d;}
+}
+:root[data-theme="dark"]{--bg:#0c151d; --surface:#132029; --ink:#e8eef3; --muted:#93a4b1; --line:#243642; --accent:#6f8bff; --accent-ink:#0c151d;}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.65 "IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif}
+a{color:var(--accent);text-underline-offset:3px}
+a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:4px}
+.wrap{max-width:960px;margin:0 auto;padding:0 24px}
+header.top{display:flex;justify-content:space-between;align-items:center;padding:22px 0;gap:16px;flex-wrap:wrap}
+header.top strong{font:700 18px "Bricolage Grotesque",system-ui,sans-serif}
+nav a{color:var(--muted);text-decoration:none;margin-left:20px;font-size:15px}
+nav a:hover{color:var(--ink)}
+.hero{padding:56px 0 48px}
+h1{font:800 clamp(44px,9vw,92px)/.98 "Bricolage Grotesque",system-ui,sans-serif;letter-spacing:-.03em;margin:0 0 24px}
+.lead{font-size:clamp(19px,2.4vw,23px);max-width:34em;color:var(--ink);margin:0 0 28px}
+.cta{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-block;padding:12px 20px;border-radius:8px;text-decoration:none;font-weight:500;border:1.5px solid var(--ink);color:var(--ink)}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.tool{background:var(--surface);border:1.5px solid var(--line);border-radius:14px;padding:24px;margin:8px 0 8px}
+.tool h2{font:700 20px "Bricolage Grotesque",system-ui,sans-serif;margin:0 0 4px}
+.tool p{margin:0 0 16px;color:var(--muted);font-size:15px}
+.row{display:flex;gap:10px;flex-wrap:wrap}
+.row input{flex:1 1 220px;min-width:0;font:500 18px "IBM Plex Mono",ui-monospace,Menlo,monospace;padding:12px 14px;border-radius:8px;border:1.5px solid var(--line);background:var(--bg);color:var(--ink)}
+.row button{font:500 16px "IBM Plex Sans",sans-serif;padding:12px 20px;border-radius:8px;border:0;background:var(--accent);color:var(--accent-ink);cursor:pointer}
+dl{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px 24px;margin:20px 0 0}
+dt{font-size:14px;color:var(--muted)}
+dd{margin:0;font:500 17px "IBM Plex Mono",ui-monospace,Menlo,monospace;overflow-wrap:anywhere}
+.err{color:#c0392b;margin-top:12px;font-size:15px;min-height:1em}
+section{padding:56px 0;border-top:1px solid var(--line)}
+h2.sec{font:700 clamp(28px,4vw,38px)/1.1 "Bricolage Grotesque",system-ui,sans-serif;letter-spacing:-.02em;margin:0 0 28px}
+.two{display:grid;grid-template-columns:1fr 2fr;gap:32px}
+@media (max-width:720px){.two{grid-template-columns:1fr;gap:12px}nav a{margin:0 16px 0 0}}
+.job h3,.proj h3{font:700 22px "Bricolage Grotesque",system-ui,sans-serif;margin:0 0 4px}
+.meta{color:var(--muted);margin:0 0 14px}
+ul{padding-left:20px;margin:0}
+li{margin:6px 0}
+.projects{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
+.proj{border-left:3px solid var(--accent);padding:2px 0 2px 18px}
+.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:28px}
+.skills h3{font:700 18px "Bricolage Grotesque",system-ui,sans-serif;margin:0 0 10px}
+.skills ul{list-style:none;padding:0}
+.skills li{margin:4px 0}
+.certs{columns:2 260px;column-gap:32px;list-style:none;padding:0}
+.certs li{break-inside:avoid;padding:6px 0;border-bottom:1px solid var(--line)}
+footer{padding:40px 0 56px;color:var(--muted);font-size:15px}
+.contact a{display:block;font-size:20px;margin:6px 0}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <strong>Eren Karaca</strong>
+    <nav aria-label="Ana menü">
+      <a href="#deneyim">Deneyim</a><a href="#projeler">Projeler</a><a href="#yetkinlik">Yetkinlikler</a><a href="#iletisim">İletişim</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="hero">
+      <h1>Eren Karaca</h1>
+      <p class="lead">Alanya'da çalışan bir bilişimciyim. Hastane ağlarını ve IP santralleri ayakta tutuyorum, boş zamanımda Python ile SaaS projeleri geliştiriyorum.</p>
+      <div class="cta">
+        <a class="btn primary" href="mailto:erenkaraca2005@gmail.com">E-posta gönder</a>
+        <a class="btn" href="https://github.com/Erenka123654" rel="noopener">GitHub profilim</a>
+      </div>
+    </div>
+
+    <div class="tool" role="group" aria-labelledby="st">
+      <h2 id="st">Alt ağ hesaplayıcı</h2>
+      <p>Günlük işimde sık kullandığım hesap. Bir IP ve önek yaz, ağ bilgilerini göreyim.</p>
+      <div class="row">
+        <input id="cidr" value="192.168.10.37/26" aria-label="IP adresi ve CIDR, örneğin 192.168.10.37/26" inputmode="text" autocomplete="off" spellcheck="false">
+        <button id="calc" type="button">Hesapla</button>
+      </div>
+      <div class="err" id="err" role="alert"></div>
+      <dl id="out"></dl>
+    </div>
+
+    <section id="hakkimda" style="border-top:0;padding-top:48px">
+      <h2 class="sec">Hakkımda</h2>
+      <p style="max-width:40em;margin:0">Yazılım geliştirme, ağ sistemleri ve teknik destek alanlarında çalışıyorum. IP santral kurulumu, ağ arızası çözme ve donanım yapılandırması gibi sahadaki işleri; FastAPI ile backend yazmak ve admin panel kurmak gibi yazılım işleriyle birlikte yürütüyorum. Teknik bir sorunu görünce önce pratik çözümü arar, sonra kalıcı hale getiririm.</p>
+    </section>
+
+    <section id="deneyim">
+      <h2 class="sec">Deneyim</h2>
+      <div class="two job">
+        <div><p class="meta">Alanya</p></div>
+        <div>
+          <h3>IT Destek / Teknisyen Yardımcısı</h3>
+          <p class="meta">Başkent Üniversitesi Hastanesi Alanya Uygulama ve Araştırma Merkezi</p>
+          <ul>
+            <li>IP santral kurulum ve yönetim süreçlerini destekliyorum.</li>
+            <li>Ağ arızalarını tespit edip gideriyorum.</li>
+            <li>Donanım kurulumu ve teknik destek sağlıyorum.</li>
+            <li>Yazıcı ve barkod sistemlerini yapılandırıyorum.</li>
+            <li>Kullanıcı destek süreçlerinde aktif görev alıyorum.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="projeler">
+      <h2 class="sec">Projeler</h2>
+      <div class="projects">
+        <div class="proj">
+          <h3>Fiyat karşılaştırma sistemi</h3>
+          <ul><li>SaaS olarak Python (FastAPI) ile backend</li><li>ASGI yapılandırması ve servis yönetimi</li><li>Veritabanı modeli ve admin panel altyapısı</li></ul>
+        </div>
+        <div class="proj">
+          <h3>Anlık mesajlaşma uygulaması</h3>
+          <ul><li>Python ile gerçek zamanlı mesajlaşma</li><li>Kayıt ve giriş sistemi</li><li>Veritabanı bağlantıları ve yönetimi</li></ul>
+        </div>
+        <div class="proj">
+          <h3>Medikal e-ticaret altyapısı</h3>
+          <ul><li>Backend ve admin panel</li><li>Ürün yönetim sistemi</li><li>Temel ödeme sistemi altyapısı</li></ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="yetkinlik">
+      <h2 class="sec">Yetkinlikler</h2>
+      <div class="skills">
+        <div><h3>Yazılım</h3><ul><li>Python, FastAPI, Uvicorn</li><li>HTML ve CSS</li><li>Temel JavaScript</li><li>REST API</li><li>Git ve GitHub</li></ul></div>
+        <div><h3>Ağ ve sistem</h3><ul><li>TCP/IP ve alt ağ hesabı</li><li>Grandstream IP santral</li><li>Ağ sorun giderme</li><li>Temel sistem yönetimi</li></ul></div>
+        <div><h3>Donanım ve destek</h3><ul><li>Yazıcı ve barkod kurulumu</li><li>Zebra, Epson gibi çevre birimleri</li><li>Donanım yapılandırması</li><li>Teknik destek süreçleri</li></ul></div>
+        <div><h3>Proje geliştirme</h3><ul><li>SaaS ürün geliştirme</li><li>Admin panel altyapıları</li><li>Veritabanı entegrasyonu</li><li>Backend mimarisi</li></ul></div>
+      </div>
+    </section>
+
+    <section id="sertifika">
+      <h2 class="sec">Sertifikalar</h2>
+      <ul class="certs">
+        <li>Ağ Temelleri</li><li>Bilgisayar Ağlarına Giriş</li><li>Güvenlik Duvarına Giriş</li><li>Siber Güvenliğe Giriş</li><li>Siber Güvenlik Giriş</li><li>Python Programlama</li><li>JAVA ile Programlamaya Giriş</li><li>İHA-1 Ticari Lisans</li><li>Kariyer ve Yetkinlik Buluşmaları 3</li>
+      </ul>
+    </section>
+
+    <section id="iletisim">
+      <h2 class="sec">İletişim</h2>
+      <div class="contact">
+        <a href="mailto:erenkaraca2005@gmail.com">erenkaraca2005@gmail.com</a>
+        <a href="https://github.com/Erenka123654" rel="noopener">github.com/Erenka123654</a>
+        <a href="https://linkedin.com/in/erenkaraca" rel="noopener">linkedin.com/in/erenkaraca</a>
+      </div>
+    </section>
+  </main>
+  <footer>Alanya, Antalya, Türkiye</footer>
+</div>
+
+<script>
+(function(){
+  var out=document.getElementById('out'),err=document.getElementById('err'),inp=document.getElementById('cidr');
+  function toIp(n){return [n>>>24,(n>>>16)&255,(n>>>8)&255,n&255].join('.');}
+  function run(){
+    err.textContent='';out.innerHTML='';
+    var m=inp.value.trim().match(/^(\d{1,3})\.(\d{1,3})\.(\d{1,3})\.(\d{1,3})\/(\d{1,2})$/);
+    if(!m){err.textContent='Şu biçimde yaz: 192.168.10.37/26';return;}
+    var o=m.slice(1,5).map(Number),p=+m[5];
+    if(o.some(function(x){return x>255})||p>32){err.textContent='Değerler geçersiz. Her bölüm 0-255, önek 0-32 olmalı.';return;}
+    var ip=((o[0]<<24)|(o[1]<<16)|(o[2]<<8)|o[3])>>>0;
+    var mask=p===0?0:(0xFFFFFFFF<<(32-p))>>>0;
+    var net=(ip&mask)>>>0,bc=(net|(~mask>>>0))>>>0;
+    var hosts=p>=31?(p===32?1:2):Math.pow(2,32-p)-2;
+    var first=p>=31?net:net+1,last=p>=31?bc:bc-1;
+    var rows=[['Ağ adresi',toIp(net)],['Alt ağ maskesi',toIp(mask)],['Yayın adresi',toIp(bc)],['İlk kullanılabilir',toIp(first)],['Son kullanılabilir',toIp(last)],['Kullanılabilir adres',hosts.toLocaleString('tr-TR')]];
+    out.innerHTML=rows.map(function(r){return '<div><dt>'+r[0]+'</dt><dd>'+r[1]+'</dd></div>'}).join('');
+  }
+  document.getElementById('calc').addEventListener('click',run);
+  inp.addEventListener('keydown',function(e){if(e.key==='Enter')run();});
+  run();
+})();
+</script>
+</body>
+</html>
